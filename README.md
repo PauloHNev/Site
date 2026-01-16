@@ -12,29 +12,23 @@
             font-family: Arial, Helvetica, sans-serif;
         }
 
-        /* 💖 FUNDO ROMÂNTICO */
         body {
             background-image: url("https://images.unsplash.com/photo-1517841905240-472988babdf9");
             background-size: cover;
             background-position: center;
-            background-repeat: no-repeat;
             background-attachment: fixed;
             color: #fff;
             text-align: center;
             position: relative;
         }
 
-        /* CAMADA ESCURA PARA LEITURA */
         body::before {
             content: "";
             position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
+            inset: 0;
             background: linear-gradient(
-                rgba(0, 0, 0, 0.65),
-                rgba(0, 0, 0, 0.85)
+                rgba(0,0,0,0.65),
+                rgba(0,0,0,0.85)
             );
             z-index: -1;
         }
@@ -48,26 +42,13 @@
             margin-bottom: 15px;
             text-transform: uppercase;
             letter-spacing: 3px;
-            text-shadow:
-                0 0 10px #ff004c,
-                0 0 20px #ff004c,
-                0 0 40px #ff004c;
+            text-shadow: 0 0 20px #ff004c;
             animation: glow 2s infinite alternate;
         }
 
         @keyframes glow {
-            from {
-                text-shadow:
-                    0 0 10px #ff004c,
-                    0 0 20px #ff004c,
-                    0 0 40px #ff004c;
-            }
-            to {
-                text-shadow:
-                    0 0 20px #ff00ff,
-                    0 0 40px #ff00ff,
-                    0 0 60px #ff00ff;
-            }
+            from { text-shadow: 0 0 20px #ff004c; }
+            to   { text-shadow: 0 0 40px #ff00ff; }
         }
 
         .names {
@@ -92,12 +73,52 @@
             height: 360px;
             object-fit: cover;
             border-radius: 18px;
-            transition: 0.4s ease;
-            box-shadow: 0 0 25px rgba(255, 0, 140, 0.6);
+            box-shadow: 0 0 25px rgba(255,0,140,.6);
         }
 
-        .gallery img:hover {
-            transform: scale(1.05);
+        /* 💬 COMENTÁRIOS */
+        .comments {
+            padding: 70px 20px;
+            max-width: 1100px;
+            margin: auto;
+        }
+
+        .comments h2 {
+            font-size: 32px;
+            margin-bottom: 40px;
+            color: #ff00ff;
+            text-shadow: 0 0 20px #ff00ff;
+        }
+
+        .comment-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 25px;
+        }
+
+        .comment {
+            background: rgba(255,255,255,0.08);
+            padding: 25px;
+            border-radius: 18px;
+            text-align: left;
+            box-shadow: 0 0 25px rgba(255,0,200,.35);
+            transition: .3s;
+        }
+
+        .comment:hover {
+            transform: scale(1.03);
+        }
+
+        .comment p {
+            font-size: 15px;
+            line-height: 1.6;
+            margin-bottom: 12px;
+        }
+
+        .comment span {
+            color: #00eaff;
+            font-weight: bold;
+            font-size: 14px;
         }
 
         .music {
@@ -105,26 +126,23 @@
             bottom: 15px;
             right: 15px;
             background: #ff004c;
-            color: #fff;
             padding: 12px 18px;
             border-radius: 50px;
-            font-size: 14px;
-            box-shadow: 0 0 20px #ff004c;
             cursor: pointer;
+            box-shadow: 0 0 20px #ff004c;
             z-index: 10;
         }
 
         footer {
             padding: 30px;
-            font-size: 14px;
-            opacity: 0.7;
+            opacity: .7;
         }
     </style>
 </head>
 
 <body>
 
-<!-- 🎵 MÚSICA YOUTUBE -->
+<!-- 🎵 MÚSICA -->
 <iframe
     id="yt-music"
     src="https://www.youtube.com/embed/NMnLpK8WCg0?autoplay=1&loop=1&playlist=NMnLpK8WCg0&mute=1&controls=0&enablejsapi=1"
@@ -135,10 +153,7 @@
 <header>
     <h1>Aqui o coro come 🔥</h1>
     <p>Resenha, zoeira e amizade sem limites</p>
-
-    <div class="names">
-        Edio • Thiago • Paulo
-    </div>
+    <div class="names">Edio • Thiago • Paulo</div>
 </header>
 
 <section class="gallery">
@@ -148,10 +163,37 @@
     <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330">
 </section>
 
+<!-- 💬 COMENTÁRIOS -->
+<section class="comments">
+    <h2>💬 O que elas dizem</h2>
+
+    <div class="comment-grid">
+        <div class="comment">
+            <p>“O Edio tem uma presença absurda, educado e muito carismático.”</p>
+            <span>— Amanda</span>
+        </div>
+
+        <div class="comment">
+            <p>“Thiago é aquele cara que conquista só na conversa.”</p>
+            <span>— Juliana</span>
+        </div>
+
+        <div class="comment">
+            <p>“Paulo tem uma energia surreal, muito parceiro.”</p>
+            <span>— Camila</span>
+        </div>
+
+        <div class="comment">
+            <p>“Os três juntos são pura resenha, impossível não gostar.”</p>
+            <span>— Larissa</span>
+        </div>
+    </div>
+</section>
+
 <div class="music" onclick="ativarSom()">🔊 Ativar som</div>
 
 <footer>
-    © 2026 • Aqui o coro come
+    © 2026 • Todos os direitos reservados
 </footer>
 
 <script>
@@ -164,17 +206,10 @@
 
     function ativarSom() {
         if (!player) return;
-
-        if (!somAtivo) {
-            player.unMute();
-            player.setVolume(70);
-            document.querySelector('.music').innerText = '🔇 Silenciar música';
-            somAtivo = true;
-        } else {
-            player.mute();
-            document.querySelector('.music').innerText = '🔊 Ativar som';
-            somAtivo = false;
-        }
+        somAtivo ? player.mute() : player.unMute();
+        document.querySelector('.music').innerText =
+            somAtivo ? '🔊 Ativar som' : '🔇 Silenciar música';
+        somAtivo = !somAtivo;
     }
 </script>
 
