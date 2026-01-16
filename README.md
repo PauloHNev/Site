@@ -147,7 +147,7 @@
 
     <!-- MÚSICA -->
     <audio autoplay loop>
-        <source src="SEU_LINK_DA_MUSICA.mp3" type="audio/mpeg">
+        <source src="https://www.youtube.com/watch?v=NMnLpK8WCg0&list=RDNMnLpK8WCg0&start_radio=1" type="audio/mpeg">
     </audio>
 
     <header>
