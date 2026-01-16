@@ -1,3 +1,4 @@
+<!DOCTYPE html>
 <html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
@@ -5,7 +6,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <style>
-        /* --- SEU CSS (inalterado) --- */
         * {
             margin: 0;
             padding: 0;
@@ -13,10 +13,31 @@
             font-family: Arial, Helvetica, sans-serif;
         }
 
+        /* 💖 FUNDO ROMÂNTICO */
         body {
-            background: radial-gradient(circle at top, #222, #000);
+            background-image: url("https://images.unsplash.com/photo-1517841905240-472988babdf9");
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
             color: #fff;
             text-align: center;
+            position: relative;
+        }
+
+        /* CAMADA ESCURA PARA LEITURA */
+        body::before {
+            content: "";
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(
+                rgba(0, 0, 0, 0.65),
+                rgba(0, 0, 0, 0.85)
+            );
+            z-index: -1;
         }
 
         header {
@@ -73,6 +94,11 @@
             object-fit: cover;
             border-radius: 18px;
             transition: 0.4s ease;
+            box-shadow: 0 0 25px rgba(255, 0, 140, 0.6);
+        }
+
+        .gallery img:hover {
+            transform: scale(1.05);
         }
 
         .music {
@@ -86,9 +112,49 @@
             font-size: 14px;
             box-shadow: 0 0 20px #ff004c;
             cursor: pointer;
+            z-index: 10;
+        }
+
+        footer {
+            padding: 30px;
+            font-size: 14px;
+            opacity: 0.7;
         }
     </style>
 </head>
+
+<body>
+
+<!-- 🎵 MÚSICA YOUTUBE -->
+<iframe
+    id="yt-music"
+    src="https://www.youtube.com/embed/NMnLpK8WCg0?autoplay=1&loop=1&playlist=NMnLpK8WCg0&mute=1&controls=0&enablejsapi=1"
+    allow="autoplay"
+    style="width:0;height:0;border:0;position:absolute;">
+</iframe>
+
+<header>
+    <h1>Aqui o coro come 🔥</h1>
+    <p>Resenha, zoeira e amizade sem limites</p>
+
+    <div class="names">
+        Edio • Thiago • Paulo
+    </div>
+</header>
+
+<section class="gallery">
+    <img src="https://images.unsplash.com/photo-1529626455594-4ff0802cfb7e">
+    <img src="https://images.unsplash.com/photo-1503342217505-b0a15ec3261c">
+    <img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2">
+    <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330">
+</section>
+
+<div class="music" onclick="ativarSom()">🔊 Ativar som</div>
+
+<footer>
+    © 2026 • Aqui o coro come
+</footer>
+
 <script>
     let somAtivo = false;
     let player;
@@ -114,41 +180,6 @@
 </script>
 
 <script src="https://www.youtube.com/iframe_api"></script>
-
-<body>
-
-<!-- 🎵 MÚSICA YOUTUBE -->
-<iframe
-    id="yt-music"
-    src="https://www.youtube.com/embed/NMnLpK8WCg0?autoplay=1&loop=1&playlist=NMnLpK8WCg0&mute=1&controls=0&enablejsapi=1"
-    allow="autoplay"
-    style="width:0;height:0;border:0;position:absolute;">
-</iframe>
-
-
-    <header>
-        <h1>Aqui o coro come 🔥</h1>
-        <p>Resenha, zoeira e amizade sem limites</p>
-
-        <div class="names">
-            Edio • Thiago • Paulo
-        </div>
-    </header>
-
-    <section class="gallery">
-        <img src="https://images.unsplash.com/photo-1529626455594-4ff0802cfb7e">
-        <img src="https://images.unsplash.com/photo-1503342217505-b0a15ec3261c">
-        <img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2">
-        <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330">
-    </section>
-
-    <div class="music" onclick="ativarSom()">🔊 Ativar som</div>
-
-
-
-    <footer>
-        © 2026 • Aqui o coro come
-    </footer>
 
 </body>
 </html>
