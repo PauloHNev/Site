@@ -145,10 +145,13 @@
 </head>
 <body>
 
-    <!-- MÚSICA -->
-    <audio autoplay loop>
-        <source src="https://www.youtube.com/watch?v=NMnLpK8WCg0&list=RDNMnLpK8WCg0&start_radio=1" type="audio/mpeg">
-    </audio>
+<!-- MÚSICA YOUTUBE -->
+<iframe
+    src="https://www.youtube.com/embed/NMnLpK8WCg0?autoplay=1&loop=1&playlist=NMnLpK8WCg0&controls=0&mute=1"
+    style="width:0;height:0;border:0;position:absolute;"
+    allow="autoplay">
+</iframe>
+
 
     <header>
         <h1>Aqui o coro come 🔥</h1>
